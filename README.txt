@@ -15,3 +15,6 @@ Setup
 	npm install express --save
 	npm install mongoose
 	node app to start
+	
+Start of database thanks to tutorial by Traversy Media: 
+https://www.youtube.com/watch?v=eB9Fq9I5ocs "RESTful API From Scratch Using Node, Express, and MongoDB"

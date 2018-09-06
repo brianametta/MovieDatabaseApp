@@ -11,7 +11,7 @@ mongoose.connect("mongodb://localhost/movieDB");
 var db = mongoose.connection;
 
 app.get("/", function(req, res) {
-  res.send("Please use /api/books or /api/genres");
+  res.send("Please use /api/movies");
 });
 
 app.get("/api/movies", function(req, res) {
