@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MovieDB Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/yeti/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="movieDB" ng-controller="MainCtrl as MainCtrl">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">
+                MovieDB Search
+            </h1>
+            <p class="lead">Welcome to The MovieDB search! Search for your movie in the field below.</p>
+            <hr class="my-4">
+            <div class="lead">
+                <form>
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">API Key</label>
+                                <input ng-model="MainCtrl.apiKey" type="text" class="form-control" id="inputDefault">
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Search</label>
+                                <input ng-model="MainCtrl.searchCriteria" type="text" class="form-control" id="inputDefault">
+                            </div>
+                        </fieldset>
+                        <button ng-click="MainCtrl.search(); MainCtrl.isSearch=true;" type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div ng-if="MainCtrl.isError" class="alert alert-warning">
+            {{MainCtrl.isError}}
+        </div>
+        <div ng-show="MainCtrl.isSearch">
+            <div class="row">
+                <h2>Search Results</h2>
+            </div>
+            <table class="table table-hover table-responsive">
+                <tbody>
+                    <tr ng-repeat="data in MainCtrl.searchResults">
+                        <td>
+                            <fieldset class="form-group">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">Owned
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </td>
+                        <td>
+                            <img src="http://image.tmdb.org/t/p/w185/{{data.poster_path}}">
+                        </td>
+                        <td>{{data.title}}</td>
+                        <td>Released: {{data.release_date}}</td>
+                        <td>{{data.overview}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Total Results: {{MainCtrl.totalResults}} (Showing 10)</p>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
