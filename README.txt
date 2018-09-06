@@ -1,6 +1,6 @@
 Created by Briana Wright
 
-Personal website to showcase my experience and skills.
+MovieDB application that allows you to search the MovieDB API.
 
 Technology used:
     AngularJS

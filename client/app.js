@@ -76,7 +76,7 @@ app.controller("MainCtrl", function($q, $http) {
 
   /**
    * Performs a PUT call to a provided URL.
-   * @param {String} url - The URL to be used in the GET call.
+   * @param {String} url - The URL to be used in the PUT call.
    * @returns {Array} The resulting data, or reason for failure if call fails.
    */
   function apiPut(url, data) {
